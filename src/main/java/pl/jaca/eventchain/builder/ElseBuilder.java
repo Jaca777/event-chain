@@ -31,7 +31,7 @@ public class ElseBuilder<T> implements EventHandler<T> {
     public EventHandler<T> otherwise(EventHandler<T> handler){
         return t -> {
             try {
-                if(condition.call()) ElseBuilder.this.handler.onNext(t);
+                if (condition.call()) ElseBuilder.this.handler.onNext(t);
                 else handler.onNext(t);
             } catch (Exception e) {
                 e.printStackTrace();

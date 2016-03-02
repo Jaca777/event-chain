@@ -27,6 +27,5 @@ public class EventHandlerBuilderTest {
         a[1] = true;
         handler2.onNext(5);
         assertEquals("325", log.toString());
-
     }
 }
