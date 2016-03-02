@@ -27,7 +27,7 @@ public class EventChainNode<T> extends EventChain<T> {
     @Override
     protected void handle(T event) {
         eventHandler.onNext(event);
-        tail.handle(event);
+        if(tail != null) tail.handle(event);
     }
 
     @Override
