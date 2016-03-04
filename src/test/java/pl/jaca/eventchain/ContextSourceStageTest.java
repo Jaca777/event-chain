@@ -4,6 +4,7 @@ import org.junit.Test;
 import pl.jaca.eventchain.builder.StageBuilder;
 
 import static org.junit.Assert.*;
+import static pl.jaca.eventchain.builder.StageBuilder.*;
 
 /**
  * @author Jaca777
@@ -16,9 +17,9 @@ public class ContextSourceStageTest {
         StringBuilder log = new StringBuilder();
         ContextSourceStage<Integer> source = new ContextSourceStage<>();
         source.add(
-                StageBuilder.<Integer>when(i -> i < 20).then(i -> i + 1)
+                when((Integer i) -> i < 20).then(i -> i + 1)
         ).add(
-                StageBuilder.<Integer>when(i -> i < 20).or(i -> i < 21).then(i -> {
+                when((Integer i) -> i < 20).or(i -> i < 21).then(i -> {
                     log.append(i);
                     return i + 1;
                 })
